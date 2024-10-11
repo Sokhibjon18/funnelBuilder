@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:easy_localization_loader/easy_localization_loader.dart';
 import 'package:flutter/material.dart';
@@ -30,10 +32,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      title: 'Web Funnel',
+      title: 'Web Funnel Builder',
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       routerConfig: getIt<AppRouter>().config(),
+      scrollBehavior: ScrollConfiguration.of(context).copyWith(
+        dragDevices: {PointerDeviceKind.touch, PointerDeviceKind.mouse},
+      ),
       theme: ThemeData(useMaterial3: true),
     );
   }

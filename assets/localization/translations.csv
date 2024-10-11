@@ -1,2 +1,26 @@
-m,ru_RU,en_US,uz_UZ
-apple,apple,apple,olma
+m,en_US,ru_RU,uz_UZ
+continueText,Continue,Продолжать,Davom eting
+pages,Pages,Страницы,Sahifalar
+preview,Preview,Предварительный просмотр,Ko‘rib chiqish
+publish,Publish,Публиковать,Nashr qilish
+elements,Elements,Элементы,Elementlar
+pageSetting,Page Setting,Настройки страницы,Sahifa sozlamalari
+styles,Styles,Стили,Uslublar
+alignments,Alignments,Выравнивания,Hizalamalar
+scrollable,Scrollable,Прокручиваемый,O'tkazish mumkin
+paddingVertical,Padding vertical,Вертикальный отступ,Vertikal to'ldirish
+paddingHorizontal,Padding horizontal,Горизонтальный отступ,Gorizontal to'ldirish
+statusBar,Status Bar,Строка состояния,Holat paneli
+light,Light,Свет,Yorug'
+dark ,Dark,Темный,Qorong'u
+backgroundColor,Background Color,Background Color,Background Color
+blurImage,Blur image,Blur image,Blur image
+backgroundImage,Background Image,Background Image,Background Image
+autoNavigation,Auto Navigation,Auto Navigation,Auto Navigation
+durationSec,Duration in sec.,Duration in sec.,Duration in sec.
+button,Button,Button,Button
+color,Color,Color,Color
+textColor,Text Color,Text Color,Text Color
+type,Type,Type,Type
+floating,Floating,Floating,Floating
+text,Text,Text,Text

@@ -263,7 +263,7 @@ packages:
     source: hosted
     version: "0.3.2"
   easy_localization_loader:
-    dependency: "direct main"
+    dependency: "direct dev"
     description:
       name: easy_localization_loader
       sha256: "465d03dc6d0a29ec51f725ba910ae311795fe79db4b87212a4fa6344cfa46c55"
