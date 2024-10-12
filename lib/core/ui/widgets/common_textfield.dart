@@ -1,0 +1,65 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:web_funnel/core/constants/app_colors.dart';
+
+class CommonTextfield extends StatelessWidget {
+  const CommonTextfield({
+    super.key,
+    this.controller,
+    this.backgroundColor,
+    this.radius,
+    this.onChanged,
+    this.prefixIcon,
+    this.suffixIcon,
+    this.inputFormatters,
+    this.cursorHeight,
+    this.contentPadding,
+    this.hint,
+  });
+
+  final TextEditingController? controller;
+  final Color? backgroundColor;
+  final double? radius;
+  final void Function(String)? onChanged;
+  final Widget? prefixIcon;
+  final Widget? suffixIcon;
+  final List<TextInputFormatter>? inputFormatters;
+  final double? cursorHeight;
+  final EdgeInsetsGeometry? contentPadding;
+  final String? hint;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      controller: controller,
+      inputFormatters: inputFormatters,
+      cursorHeight: cursorHeight ?? 12,
+      style: TextStyle(color: AppColors.textPrimary, fontSize: 12, fontWeight: FontWeight.w600),
+      decoration: InputDecoration(
+        suffixIcon: suffixIcon,
+        prefixIcon: prefixIcon,
+        prefixStyle: TextStyle(
+          fontSize: 12,
+          fontWeight: FontWeight.w400,
+          color: AppColors.textPrimary,
+          overflow: TextOverflow.ellipsis,
+        ),
+        hintText: hint,
+        hintStyle: TextStyle(
+          fontSize: 12,
+          fontWeight: FontWeight.w400,
+          color: AppColors.textPrimary,
+          overflow: TextOverflow.ellipsis,
+        ),
+        filled: true,
+        fillColor: backgroundColor ?? AppColors.componentsBackground,
+        contentPadding: contentPadding ?? EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(radius ?? 12),
+          borderSide: BorderSide.none,
+        ),
+      ),
+      onChanged: onChanged,
+    );
+  }
+}
