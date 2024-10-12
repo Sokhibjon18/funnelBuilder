@@ -1,7 +1,8 @@
 import 'package:animated_button_bar/animated_button_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:web_funnel/core/ui/app_colors.dart';
-import 'package:web_funnel/home/widgets/elements.dart';
+import 'package:web_funnel/ui/builder_page/page_modifier_column/widgets/elements.dart';
+import 'package:web_funnel/ui/builder_page/page_modifier_column/widgets/page_settings.dart';
 
 class PageModifierColumn extends StatefulWidget {
   const PageModifierColumn({super.key});
@@ -57,7 +58,7 @@ class _PageModifierColumnState extends State<PageModifierColumn> {
           if (selectedTab == 'Elements') ...[
             Elements()
           ] else if (selectedTab == 'Page Setting') ...[
-            // const PageSettings()
+            PageSettings()
           ]
         ],
       ),

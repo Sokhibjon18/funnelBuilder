@@ -19,7 +19,6 @@ class PageSettings extends StatelessWidget {
     return Expanded(
       child: Container(
         width: 260,
-        padding: EdgeInsets.all(24.0),
         color: AppColors.sidebarBackground,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

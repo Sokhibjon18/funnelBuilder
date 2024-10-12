@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:web_funnel/features/funnel_builder_page/pages/funnel_builder_page.dart';
+import 'package:web_funnel/ui/builder_page/builder_page.dart';
 
 part 'app_router.gr.dart';
 
@@ -10,6 +10,6 @@ class AppRouter extends RootStackRouter {
 
   @override
   List<AutoRoute> get routes => [
-        AutoRoute(page: FunnelBuilderRoute.page, initial: true),
+        AutoRoute(page: BuilderRoute.page, initial: true),
       ];
 }

@@ -3,17 +3,17 @@ import 'package:web_funnel/core/constants/app_colors.dart';
 import 'package:web_funnel/core/extensions/screen_size_extention.dart';
 import 'package:web_funnel/core/gen/strings.dart';
 import 'package:web_funnel/core/ui/widgets/common_button.dart';
-import 'package:web_funnel/features/phone_skeleton/widgets/reorderable_widgets.dart';
-import 'package:web_funnel/features/phone_skeleton/widgets/top_notch.dart';
+import 'widgets/reorderable_widgets.dart';
+import 'widgets/top_notch.dart';
 
-class PhoneSkeleton extends StatefulWidget {
-  const PhoneSkeleton({super.key});
+class PhoneColumn extends StatefulWidget {
+  const PhoneColumn({super.key});
 
   @override
-  State<PhoneSkeleton> createState() => _PhoneSkeletonState();
+  State<PhoneColumn> createState() => _PhoneColumnState();
 }
 
-class _PhoneSkeletonState extends State<PhoneSkeleton> {
+class _PhoneColumnState extends State<PhoneColumn> {
   final List<Widget> _items = [
     const SizedBox(height: 30),
     const Text(

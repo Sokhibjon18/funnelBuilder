@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:web_funnel/core/ui/app_colors.dart';
 
-class PagesColumn extends StatefulWidget {
-  const PagesColumn({super.key});
+class PagesSelectionColumn extends StatefulWidget {
+  const PagesSelectionColumn({super.key});
 
   @override
-  State<PagesColumn> createState() => _PagesColumnState();
+  State<PagesSelectionColumn> createState() => _PagesSelectionColumnState();
 }
 
-class _PagesColumnState extends State<PagesColumn> {
+class _PagesSelectionColumnState extends State<PagesSelectionColumn> {
   List<int> pages = [];
   int selectedIndex = -1;
 
