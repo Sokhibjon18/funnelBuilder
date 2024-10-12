@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:web_funnel/core/constants/app_colors.dart';
 import 'package:web_funnel/core/ui/widgets/common_textfield.dart';
-import 'package:web_funnel/core/ui/widgets/component_container.dart';
+import 'package:web_funnel/core/ui/widgets/component_wrapper.dart';
 
-class ValueInputComponent extends StatelessWidget {
-  const ValueInputComponent({
+class NumberInputComponent extends StatelessWidget {
+  const NumberInputComponent({
     super.key,
     required this.text,
     this.onChanged,
@@ -22,7 +22,7 @@ class ValueInputComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ComponentContainer(
+    return ComponentWrapper(
       backgroundColor: AppColors.transparent,
       padding: padding ?? const EdgeInsets.only(left: 10),
       text: text,

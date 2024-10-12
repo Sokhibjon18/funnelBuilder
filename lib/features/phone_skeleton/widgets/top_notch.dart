@@ -13,9 +13,8 @@ class TopNotch extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: phoneWidth * 0.2,
-      padding: const EdgeInsets.fromLTRB(32, 20, 32, 0),
+      padding: const EdgeInsets.fromLTRB(32, 10, 32, 0),
       decoration: BoxDecoration(
-        color: AppColors.black,
         borderRadius: BorderRadius.vertical(top: Radius.circular(phoneRadius)),
       ),
       child: Row(
@@ -51,13 +50,13 @@ class TopNotch extends StatelessWidget {
                   color: AppColors.primaryIcon,
                   size: 16,
                 ),
-                const SizedBox(width: 2),
+                const SizedBox(width: 4),
                 Icon(
                   Icons.wifi_rounded,
                   color: AppColors.primaryIcon,
                   size: 16,
                 ),
-                const SizedBox(width: 2),
+                const SizedBox(width: 4),
                 Transform.rotate(
                   angle: pi / 2,
                   child: Icon(

@@ -2,19 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:web_funnel/core/constants/app_colors.dart';
 import 'package:web_funnel/core/gen/strings.dart';
-import 'package:web_funnel/core/ui/widgets/component_container.dart';
-import 'package:web_funnel/core/ui/widgets/page_components/color_picker_component.dart';
-import 'package:web_funnel/core/ui/widgets/page_components/image_picker_component.dart';
-import 'package:web_funnel/core/ui/widgets/page_components/status_selection_component.dart';
-import 'package:web_funnel/core/ui/widgets/page_components/switchable_component.dart';
-import 'package:web_funnel/core/ui/widgets/page_components/value_input_component.dart';
+import 'package:web_funnel/core/ui/widgets/component_wrapper.dart';
+import 'package:web_funnel/core/ui/components/color_picker_component.dart';
+import 'package:web_funnel/core/ui/components/image_picker_component.dart';
+import 'package:web_funnel/core/ui/components/selection_component.dart';
+import 'package:web_funnel/core/ui/components/switchable_component.dart';
+import 'package:web_funnel/core/ui/components/number_input_component.dart';
 
 class PageSettings extends StatelessWidget {
-  const PageSettings({super.key});
+  PageSettings({super.key});
+  final List<String> dropdownItems = [Strings.light, Strings.dark];
 
   @override
   Widget build(BuildContext context) {
-    List<String> dropdownItems = [Strings.light, Strings.dark];
     String selectedValue = Strings.dark;
     return Expanded(
       child: Container(
@@ -33,7 +33,8 @@ class PageSettings extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 16),
-            StatusSelectionComponent(
+            SelectionComponent(
+              selectionText: Strings.statusBar,
               defaultSelectedValue: selectedValue,
               dropdownItems: dropdownItems,
               onValueChanged: (String value) {},
@@ -50,7 +51,7 @@ class PageSettings extends StatelessWidget {
               text: Strings.backgroundColor,
             ),
             const SizedBox(height: 12),
-            ComponentContainer(
+            ComponentWrapper(
               height: 96,
               padding: EdgeInsets.only(right: 4, left: 10),
               child: Column(
@@ -61,7 +62,7 @@ class PageSettings extends StatelessWidget {
                     onSwitched: (value) {},
                   ),
                   const SizedBox(height: 8),
-                  ValueInputComponent(
+                  NumberInputComponent(
                     backgroundColor: AppColors.sidebarBackground,
                     padding: EdgeInsets.zero,
                     text: Strings.durationSec,

@@ -47,12 +47,12 @@ class _PhoneSkeletonState extends State<PhoneSkeleton> {
     ),
   ];
 
+  final double phoneAspectRatio = 9 / 19;
+  final double phoneBorderRadius = 60;
+  final double phoneBorderWidth = 4;
+
   @override
   Widget build(BuildContext context) {
-    const double phoneAspectRatio = 9 / 19;
-    const double phoneBorderRadius = 40;
-    const double phoneBorderWidth = 4;
-
     double phoneWidth = (context.width * 0.25).clamp(350, 450);
     double phoneHeight = phoneWidth / phoneAspectRatio;
 
@@ -63,25 +63,21 @@ class _PhoneSkeletonState extends State<PhoneSkeleton> {
 
     return Expanded(
       child: Center(
-        child: SizedBox(
+        child: Container(
           height: phoneHeight,
           width: phoneWidth,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(phoneBorderRadius),
+            border: Border.all(color: AppColors.containerBorderPrimary, width: 4),
+            image: DecorationImage(
+              image: NetworkImage(
+                'https://i.pinimg.com/564x/b0/69/d7/b069d71d2a1d7879b583802a9847b12d.jpg',
+              ),
+              fit: BoxFit.cover,
+            ),
+          ),
           child: Stack(
             children: [
-              Container(
-                height: phoneHeight,
-                width: phoneWidth,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(phoneBorderRadius),
-                  border: Border.all(color: AppColors.containerBorderPrimary, width: 4),
-                  image: DecorationImage(
-                    image: NetworkImage(
-                      'https://i.pinimg.com/564x/b0/69/d7/b069d71d2a1d7879b583802a9847b12d.jpg',
-                    ),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
               Positioned(
                 top: phoneWidth * 0.23,
                 left: phoneBorderWidth,
@@ -95,10 +91,7 @@ class _PhoneSkeletonState extends State<PhoneSkeleton> {
                 top: 0,
                 left: 0,
                 right: 0,
-                child: TopNotch(
-                  phoneWidth: phoneWidth,
-                  phoneRadius: phoneBorderRadius,
-                ),
+                child: TopNotch(phoneWidth: phoneWidth, phoneRadius: phoneBorderRadius),
               ),
               Positioned(
                 bottom: 0,
@@ -108,8 +101,8 @@ class _PhoneSkeletonState extends State<PhoneSkeleton> {
               ),
               Positioned(
                 bottom: 29,
-                left: phoneBorderWidth,
-                right: phoneBorderWidth,
+                left: 0,
+                right: 0,
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
                   child: CommonButton(

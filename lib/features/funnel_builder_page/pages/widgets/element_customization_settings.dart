@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:web_funnel/core/constants/app_colors.dart';
 import 'package:web_funnel/core/gen/strings.dart';
-import 'package:web_funnel/core/ui/widgets/page_components/checkable_component.dart';
-import 'package:web_funnel/core/ui/widgets/page_components/color_picker_component.dart';
-import 'package:web_funnel/core/ui/widgets/page_components/status_selection_component.dart';
-import 'package:web_funnel/core/ui/widgets/page_components/switchable_component.dart';
-import 'package:web_funnel/core/ui/widgets/page_components/text_input_component.dart';
-import 'package:web_funnel/core/ui/widgets/page_components/value_input_component.dart';
+import 'package:web_funnel/core/ui/components/checkable_component.dart';
+import 'package:web_funnel/core/ui/components/color_picker_component.dart';
+import 'package:web_funnel/core/ui/components/selection_component.dart';
+import 'package:web_funnel/core/ui/components/switchable_component.dart';
+import 'package:web_funnel/core/ui/components/text_input_component.dart';
+import 'package:web_funnel/core/ui/components/number_input_component.dart';
 
 class ElementCustomizationSettings extends StatefulWidget {
   const ElementCustomizationSettings({super.key});
@@ -17,20 +17,10 @@ class ElementCustomizationSettings extends StatefulWidget {
 }
 
 class _ElementCustomizationSettingsState extends State<ElementCustomizationSettings> {
-  final List<String> buttonTypes = [
-    "Floating",
-    "Docked",
-    "Full Width",
-    "Contained",
-    "Outlined",
-    "Rounded",
-    "Flat",
-    "Raised",
-    "Compact",
-    "Icon",
-  ];
+  final List<String> buttonTypes = ["Floating", "Pinned"];
 
   String defaultType = "Floating";
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -44,13 +34,13 @@ class _ElementCustomizationSettingsState extends State<ElementCustomizationSetti
               onValueChanged: (value) {},
             ),
             const SizedBox(height: 12),
-            ValueInputComponent(
+            NumberInputComponent(
               text: Strings.paddingVertical,
               onChanged: (value) {},
               inputFormatters: [FilteringTextInputFormatter.digitsOnly],
             ),
             const SizedBox(height: 12),
-            ValueInputComponent(
+            NumberInputComponent(
               text: Strings.paddingHorizontal,
               onChanged: (value) {},
               inputFormatters: [FilteringTextInputFormatter.digitsOnly],
@@ -61,15 +51,12 @@ class _ElementCustomizationSettingsState extends State<ElementCustomizationSetti
               onSwitched: (value) {},
             ),
             const SizedBox(height: 12),
-            ColorPickerComponent(
-              text: Strings.color,
-            ),
+            ColorPickerComponent(text: Strings.color),
             const SizedBox(height: 12),
-            ColorPickerComponent(
-              text: Strings.textColor,
-            ),
+            ColorPickerComponent(text: Strings.textColor),
             const SizedBox(height: 12),
-            StatusSelectionComponent(
+            SelectionComponent(
+              selectionText: Strings.type,
               dropdownItems: buttonTypes,
               defaultSelectedValue: defaultType,
               onValueChanged: (value) {},

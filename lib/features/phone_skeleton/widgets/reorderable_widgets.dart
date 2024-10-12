@@ -12,9 +12,16 @@ class ReorderableWidgets extends StatefulWidget {
 
 class _ReorderableWidgetsState extends State<ReorderableWidgets> {
   int? _selectedIndex;
+  List<Widget> items = [];
+
+  @override
+  void initState() {
+    super.initState();
+    items = widget.widgetsList;
+  }
+
   @override
   Widget build(BuildContext context) {
-    List<Widget> items = widget.widgetsList;
     return Theme(
       data: Theme.of(context).copyWith(
         canvasColor: AppColors.transparent,

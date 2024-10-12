@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:web_funnel/core/constants/app_colors.dart';
 
-class ComponentContainer extends StatelessWidget {
-  const ComponentContainer({
+class ComponentWrapper extends StatelessWidget {
+  const ComponentWrapper({
     super.key,
     this.height = 40,
     this.backgroundColor,

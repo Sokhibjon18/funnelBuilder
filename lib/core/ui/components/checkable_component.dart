@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:web_funnel/core/constants/app_colors.dart';
 import 'package:web_funnel/core/gen/strings.dart';
-import 'package:web_funnel/core/ui/widgets/component_container.dart';
+import 'package:web_funnel/core/ui/widgets/component_wrapper.dart';
 
 class CheckableComponent extends StatefulWidget {
   const CheckableComponent({
@@ -22,7 +22,7 @@ class _CheckableComponentState extends State<CheckableComponent> {
 
   @override
   Widget build(BuildContext context) {
-    return ComponentContainer(
+    return ComponentWrapper(
       backgroundColor: widget.backgroundColor,
       text: Strings.scrollable,
       child: Checkbox(

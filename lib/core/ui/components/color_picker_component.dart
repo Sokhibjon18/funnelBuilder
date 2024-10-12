@@ -1,7 +1,7 @@
 import 'package:flex_color_picker/flex_color_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:web_funnel/core/constants/app_colors.dart';
-import 'package:web_funnel/core/ui/widgets/component_container.dart';
+import 'package:web_funnel/core/ui/widgets/component_wrapper.dart';
 
 class ColorPickerComponent extends StatefulWidget {
   const ColorPickerComponent({
@@ -25,9 +25,10 @@ class _ColorPickerComponentState extends State<ColorPickerComponent> {
     color: AppColors.textPrimary,
     overflow: TextOverflow.ellipsis,
   );
+
   @override
   Widget build(BuildContext context) {
-    return ComponentContainer(
+    return ComponentWrapper(
       padding: EdgeInsets.only(left: 10),
       backgroundColor: widget.backgroundColor,
       text: widget.text,
@@ -54,7 +55,7 @@ class _ColorPickerComponentState extends State<ColorPickerComponent> {
   Widget _colorPicker() {
     return Dialog(
       child: Container(
-        width: 300,
+        width: 400,
         height: 600,
         padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
         decoration: BoxDecoration(
@@ -77,11 +78,15 @@ class _ColorPickerComponentState extends State<ColorPickerComponent> {
           opacityThumbRadius: 12,
           pickersEnabled: const <ColorPickerType, bool>{
             ColorPickerType.both: false,
-            ColorPickerType.accent: false,
+            ColorPickerType.accent: true,
             ColorPickerType.bw: false,
-            ColorPickerType.custom: false,
-            ColorPickerType.primary: false,
-            ColorPickerType.wheel: true,
+            ColorPickerType.custom: true,
+            ColorPickerType.primary: true,
+            ColorPickerType.wheel: false,
+          },
+          customColorSwatchesAndNames: {
+            ColorTools.createPrimarySwatch(Colors.black): 'Black',
+            ColorTools.createPrimarySwatch(Colors.white): 'White',
           },
           actionButtons: ColorPickerActionButtons(
             closeButton: true,

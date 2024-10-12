@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:web_funnel/core/constants/app_colors.dart';
 import 'package:web_funnel/core/ui/widgets/common_textfield.dart';
-import 'package:web_funnel/core/ui/widgets/component_container.dart';
+import 'package:web_funnel/core/ui/widgets/component_wrapper.dart';
 
 class TextInputComponent extends StatelessWidget {
   const TextInputComponent({
@@ -15,7 +15,7 @@ class TextInputComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ComponentContainer(
+    return ComponentWrapper(
       height: 82,
       backgroundColor: backgroundColor,
       child: Column(

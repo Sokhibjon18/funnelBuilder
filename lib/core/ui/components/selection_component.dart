@@ -1,27 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:web_funnel/core/constants/app_colors.dart';
-import 'package:web_funnel/core/gen/strings.dart';
-import 'package:web_funnel/core/ui/widgets/component_container.dart';
+import 'package:web_funnel/core/ui/widgets/component_wrapper.dart';
 
-class StatusSelectionComponent extends StatefulWidget {
-  const StatusSelectionComponent({
+class SelectionComponent extends StatefulWidget {
+  const SelectionComponent({
     super.key,
     this.backgroundColor = AppColors.componentsBackground,
     required this.dropdownItems,
     required this.defaultSelectedValue,
-    required this.onValueChanged,
+    required this.onValueChanged, required this.selectionText,
   });
 
   final Color backgroundColor;
   final List<String> dropdownItems;
   final String defaultSelectedValue;
   final ValueChanged<String> onValueChanged;
+  final String selectionText;
 
   @override
-  State<StatusSelectionComponent> createState() => _StatusSelectionComponentState();
+  State<SelectionComponent> createState() => _SelectionComponentState();
 }
 
-class _StatusSelectionComponentState extends State<StatusSelectionComponent> {
+class _SelectionComponentState extends State<SelectionComponent> {
   late String selectedValue;
 
   @override
@@ -39,9 +39,9 @@ class _StatusSelectionComponentState extends State<StatusSelectionComponent> {
 
   @override
   Widget build(BuildContext context) {
-    return ComponentContainer(
+    return ComponentWrapper(
       backgroundColor: widget.backgroundColor,
-      text: Strings.statusBar,
+      text: widget.selectionText,
       child: DropdownButton<String>(
         value: selectedValue,
         icon: Icon(
