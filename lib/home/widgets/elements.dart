@@ -25,21 +25,18 @@ class Elements extends StatelessWidget {
             'Base Elements',
             style: TextStyle(
                 color: AppColors.white,
-                fontSize: 32,
-                fontWeight: FontWeight.w700),
+                fontSize: 24,
+                fontWeight: FontWeight.w500),
           ),
           const SizedBox(height: 12),
-          SizedBox(
-            height: MediaQuery.of(context).size.height - 300,
-            child: Wrap(
-              crossAxisAlignment: WrapCrossAlignment.center,
-              alignment: WrapAlignment.center,
-              spacing: 8.0,
-              runSpacing: 8.0,
-              children: List.generate(elements.length, (index) {
-                return _buildElementContainer(elements[index]);
-              }),
-            ),
+          Wrap(
+            crossAxisAlignment: WrapCrossAlignment.center,
+            alignment: WrapAlignment.center,
+            spacing: 8.0,
+            runSpacing: 8.0,
+            children: List.generate(elements.length, (index) {
+              return _buildElementContainer(elements[index]);
+            }),
           ),
         ],
       ),
@@ -47,27 +44,32 @@ class Elements extends StatelessWidget {
   }
 
   Widget _buildElementContainer(ElementData element) {
-    return Container(
-      height: 175,
-      width: 175,
-      decoration: BoxDecoration(
-        color: AppColors.pagesColors,
-        border: Border.all(color: AppColors.white, width: 3),
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Column(
-        // mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(element.icon, color: AppColors.white, size: 48),
-          const SizedBox(height: 8),
-          Text(
-            element.name,
-            style: const TextStyle(color: AppColors.white, fontSize: 24),
-            textAlign: TextAlign.center,
-            maxLines: 2,
+    return ConstrainedBox(
+      constraints: const BoxConstraints(maxWidth: 120),
+      child: AspectRatio(
+        aspectRatio: 1,
+        child: Container(
+          decoration: BoxDecoration(
+            color: AppColors.pagesColors,
+            border: Border.all(color: AppColors.white, width: 3),
+            borderRadius: BorderRadius.circular(12),
           ),
-        ],
+          child: Column(
+            // mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(element.icon, color: AppColors.white, size: 48),
+              const SizedBox(height: 8),
+              Text(
+                element.name,
+                style: const TextStyle(color: AppColors.white, fontSize: 16),
+                textAlign: TextAlign.center,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

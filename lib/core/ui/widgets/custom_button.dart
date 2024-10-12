@@ -27,10 +27,10 @@ class _CustomButtonState extends State<CustomButton> {
         backgroundColor: widget.color,
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 32),
+        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
         child: Text(
           widget.text,
-          style: const TextStyle(fontSize: 24, color: AppColors.white),
+          style: const TextStyle(fontSize: 16, color: AppColors.white),
         ),
       ),
     );

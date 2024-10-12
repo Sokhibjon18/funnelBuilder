@@ -10,7 +10,7 @@ class FunnelBar extends StatelessWidget implements PreferredSizeWidget {
     return Container(
       decoration: const BoxDecoration(color: AppColors.appBarColor),
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 16),
+        padding: const EdgeInsets.symmetric(vertical: 8),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -23,29 +23,31 @@ class FunnelBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   Widget _buildProjectNameButton() {
-    return Container(
-      margin: const EdgeInsets.only(top: 16, bottom: 16, left: 48),
-      padding: const EdgeInsets.symmetric(vertical: 17.5, horizontal: 32),
-      decoration: BoxDecoration(
-        color: AppColors.buttonColor,
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: const Row(
-        children: [
-          Icon(Icons.edit, size: 32, color: AppColors.white),
-          SizedBox(width: 12),
-          Text(
-            'Project name',
-            style: TextStyle(fontSize: 24, color: AppColors.white),
-          ),
-        ],
+    return InkWell(
+      child: Container(
+        margin: const EdgeInsets.only(top: 8, bottom: 8, left: 24),
+        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+        decoration: BoxDecoration(
+          color: AppColors.buttonColor,
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: const Row(
+          children: [
+            Icon(Icons.edit, size: 18, color: AppColors.white),
+            SizedBox(width: 12),
+            Text(
+              'Project name',
+              style: TextStyle(fontSize: 16, color: AppColors.white),
+            ),
+          ],
+        ),
       ),
     );
   }
 
   Widget _buildActionButtons() {
     return Padding(
-      padding: const EdgeInsets.only(right: 48),
+      padding: const EdgeInsets.only(right: 24),
       child: Row(
         children: [
           CustomButton(
@@ -53,7 +55,7 @@ class FunnelBar extends StatelessWidget implements PreferredSizeWidget {
             color: AppColors.buttonColor,
             onPressed: () {},
           ),
-          const SizedBox(width: 24),
+          const SizedBox(width: 12),
           CustomButton(
             text: 'Publish',
             color: AppColors.blue,
@@ -65,5 +67,5 @@ class FunnelBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(200);
+  Size get preferredSize => const Size.fromHeight(100);
 }
