@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:web_funnel/core/ui/app_colors.dart';
 import 'package:web_funnel/home/widgets/funnel_bar.dart';
-import 'package:web_funnel/home/widgets/pages.dart';
-import 'package:web_funnel/home/widgets/settings.dart';
+import 'package:web_funnel/home/widgets/pages_column.dart';
+import 'package:web_funnel/home/widgets/page_modifier_column.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -19,11 +19,9 @@ class _HomePageState extends State<HomePage> {
       appBar: const FunnelBar(),
       body: Row(
         children: [
-          const Pages(),
-          const Settings(),
+          const PagesColumn(),
+          const PageModifierColumn(),
           Container()
-          // Expanded(flex: 4, child: Container()),
-          // const Components(),
         ],
       ),
     );

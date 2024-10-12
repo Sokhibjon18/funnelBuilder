@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:web_funnel/core/ui/app_colors.dart';
 
-class Pages extends StatefulWidget {
-  const Pages({super.key});
+class PagesColumn extends StatefulWidget {
+  const PagesColumn({super.key});
 
   @override
-  State<Pages> createState() => _PagesState();
+  State<PagesColumn> createState() => _PagesColumnState();
 }
 
-class _PagesState extends State<Pages> {
-  List<int> pages = List.generate(0, (index) => index + 1);
+class _PagesColumnState extends State<PagesColumn> {
+  List<int> pages = [];
   int selectedIndex = -1;
 
   @override
@@ -30,9 +30,10 @@ class _PagesState extends State<Pages> {
                 child: Text(
                   'Pages',
                   style: TextStyle(
-                      color: AppColors.white,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 16),
+                    color: AppColors.white,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 16,
+                  ),
                 ),
               ),
               Expanded(
@@ -41,11 +42,7 @@ class _PagesState extends State<Pages> {
                   itemBuilder: (BuildContext context, int index) {
                     if (index == pages.length) {
                       return GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            pages.add(pages.length + 1);
-                          });
-                        },
+                        onTap: () => setState(() => pages.add(pages.length + 1)),
                         child: Container(
                           margin: const EdgeInsets.only(bottom: 12),
                           decoration: BoxDecoration(
@@ -64,11 +61,7 @@ class _PagesState extends State<Pages> {
                       );
                     } else {
                       return GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            selectedIndex = index;
-                          });
-                        },
+                        onTap: () => setState(() => selectedIndex = index),
                         child: Container(
                           margin: const EdgeInsets.only(bottom: 12),
                           decoration: BoxDecoration(

@@ -24,16 +24,17 @@ class Elements extends StatelessWidget {
           const Text(
             'Base Elements',
             style: TextStyle(
-                color: AppColors.white,
-                fontSize: 24,
-                fontWeight: FontWeight.w500),
+              color: AppColors.white,
+              fontSize: 24,
+              fontWeight: FontWeight.w500,
+            ),
           ),
           const SizedBox(height: 12),
           Wrap(
             crossAxisAlignment: WrapCrossAlignment.center,
             alignment: WrapAlignment.center,
-            spacing: 8.0,
-            runSpacing: 8.0,
+            spacing: 16.0,
+            runSpacing: 16.0,
             children: List.generate(elements.length, (index) {
               return _buildElementContainer(elements[index]);
             }),
@@ -55,7 +56,6 @@ class Elements extends StatelessWidget {
             borderRadius: BorderRadius.circular(12),
           ),
           child: Column(
-            // mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Icon(element.icon, color: AppColors.white, size: 48),

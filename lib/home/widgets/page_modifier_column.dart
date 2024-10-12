@@ -3,20 +3,20 @@ import 'package:flutter/material.dart';
 import 'package:web_funnel/core/ui/app_colors.dart';
 import 'package:web_funnel/home/widgets/elements.dart';
 
-class Settings extends StatefulWidget {
-  const Settings({super.key});
+class PageModifierColumn extends StatefulWidget {
+  const PageModifierColumn({super.key});
 
   @override
-  State<Settings> createState() => _SettingsState();
+  State<PageModifierColumn> createState() => _PageModifierColumnState();
 }
 
-class _SettingsState extends State<Settings> {
+class _PageModifierColumnState extends State<PageModifierColumn> {
   String selectedTab = 'Elements';
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 300,
+      width: 304,
       height: MediaQuery.of(context).size.height,
       color: AppColors.pagesColors,
       child: Column(
@@ -31,32 +31,24 @@ class _SettingsState extends State<Settings> {
             innerVerticalPadding: 8,
             children: [
               ButtonBarEntry(
-                onTap: () {
-                  setState(() {
-                    selectedTab = 'Elements';
-                  });
-                },
+                onTap: () => setState(() => selectedTab = 'Elements'),
                 child: const Text(
                   'Elements',
                   style: TextStyle(
                     fontSize: 16,
                     color: AppColors.white,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
               ),
               ButtonBarEntry(
-                onTap: () {
-                  setState(() {
-                    selectedTab = 'Page Setting';
-                  });
-                },
+                onTap: () => setState(() => selectedTab = 'Page Setting'),
                 child: const Text(
                   'Page Setting',
                   style: TextStyle(
                     fontSize: 16,
                     color: AppColors.white,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
               ),
