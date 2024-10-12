@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:web_funnel/core/constants/theme_colors.dart';
+import 'package:web_funnel/core/constants/app_colors.dart';
 
 class CommonButton extends StatelessWidget {
   const CommonButton({
@@ -24,13 +24,13 @@ class CommonButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: height ?? 48,
+      height: height ?? 47,
       width: double.infinity,
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(radius ?? 32),
+            borderRadius: BorderRadius.circular(radius ?? 16),
           ),
           backgroundColor: backgroundColor ?? AppColors.black,
           elevation: elevation,
@@ -40,7 +40,7 @@ class CommonButton extends StatelessWidget {
           style: TextStyle(
             fontSize: 12,
             fontWeight: FontWeight.w700,
-            color: textColor ?? AppColors.white,
+            color: textColor ?? AppColors.textPrimary,
           ),
         ),
       ),

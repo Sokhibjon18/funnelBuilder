@@ -1,21 +1,22 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:web_funnel/core/constants/theme_colors.dart';
+import 'package:web_funnel/core/constants/app_colors.dart';
 
 class TopNotch extends StatelessWidget {
-  const TopNotch({super.key, required this.phoneWidth});
+  const TopNotch({super.key, required this.phoneWidth, required this.phoneRadius});
 
   final double phoneWidth;
+  final double phoneRadius;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: phoneWidth * 0.2,
-      padding: const EdgeInsets.fromLTRB(40, 20, 40, 0),
+      padding: const EdgeInsets.fromLTRB(32, 20, 32, 0),
       decoration: BoxDecoration(
         color: AppColors.black,
-        borderRadius: BorderRadius.vertical(top: Radius.circular(80)),
+        borderRadius: BorderRadius.vertical(top: Radius.circular(phoneRadius)),
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -27,7 +28,7 @@ class TopNotch extends StatelessWidget {
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w400,
-                color: AppColors.white,
+                color: AppColors.textPrimary,
               ),
             ),
           ),
@@ -47,13 +48,13 @@ class TopNotch extends StatelessWidget {
               children: [
                 Icon(
                   Icons.signal_cellular_alt_rounded,
-                  color: AppColors.white,
+                  color: AppColors.primaryIcon,
                   size: 16,
                 ),
                 const SizedBox(width: 2),
                 Icon(
                   Icons.wifi_rounded,
-                  color: AppColors.white,
+                  color: AppColors.primaryIcon,
                   size: 16,
                 ),
                 const SizedBox(width: 2),
@@ -61,7 +62,7 @@ class TopNotch extends StatelessWidget {
                   angle: pi / 2,
                   child: Icon(
                     Icons.battery_full_rounded,
-                    color: AppColors.white,
+                    color: AppColors.primaryIcon,
                     size: 16,
                   ),
                 ),

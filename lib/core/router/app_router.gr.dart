@@ -10,20 +10,20 @@
 part of 'app_router.dart';
 
 /// generated route for
-/// [PhoneSkeletonPage]
-class PhoneSkeletonRoute extends PageRouteInfo<void> {
-  const PhoneSkeletonRoute({List<PageRouteInfo>? children})
+/// [FunnelBuilderPage]
+class FunnelBuilderRoute extends PageRouteInfo<void> {
+  const FunnelBuilderRoute({List<PageRouteInfo>? children})
       : super(
-          PhoneSkeletonRoute.name,
+          FunnelBuilderRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'PhoneSkeletonRoute';
+  static const String name = 'FunnelBuilderRoute';
 
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return const PhoneSkeletonPage();
+      return const FunnelBuilderPage();
     },
   );
 }

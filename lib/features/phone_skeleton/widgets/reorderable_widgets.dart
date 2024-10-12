@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:web_funnel/core/constants/theme_colors.dart';
+import 'package:web_funnel/core/constants/app_colors.dart';
 
 class ReorderableWidgets extends StatefulWidget {
   const ReorderableWidgets({super.key, required this.widgetsList});
@@ -17,8 +17,8 @@ class _ReorderableWidgetsState extends State<ReorderableWidgets> {
     List<Widget> items = widget.widgetsList;
     return Theme(
       data: Theme.of(context).copyWith(
-        canvasColor: Colors.transparent,
-        shadowColor: Colors.transparent,
+        canvasColor: AppColors.transparent,
+        shadowColor: AppColors.transparent,
       ),
       child: ReorderableListView(
         onReorder: (oldIndex, newIndex) {
