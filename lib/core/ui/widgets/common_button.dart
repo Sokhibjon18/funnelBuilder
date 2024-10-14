@@ -24,7 +24,7 @@ class CommonButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: height ?? 47,
+      height: height ?? 52,
       width: double.infinity,
       child: ElevatedButton(
         onPressed: onPressed,
@@ -38,8 +38,8 @@ class CommonButton extends StatelessWidget {
         child: Text(
           text,
           style: TextStyle(
-            fontSize: 12,
-            fontWeight: FontWeight.w700,
+            fontSize: 16,
+            fontWeight: FontWeight.w600,
             color: textColor ?? AppColors.textPrimary,
           ),
         ),

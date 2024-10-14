@@ -24,3 +24,9 @@ textColor,Text Color,Text Color,Text Color
 type,Type,Type,Type
 floating,Floating,Floating,Floating
 text,Text,Text,Text
+baseElements,Base Elements,Базовый элемент,Asosoiy Elementlar
+projectName,Project name,Имя проекта,Loyiha nomi
+image,Image,Изображение,Rasm
+multipleChoice,Multiple Choice,Множественный выбор,Ko'p tanlov
+textField,Text Field,Текстовое поле,Matn maydoni
+subscriptionOptions,Subscription Options,Параметры подписки,Obuna opsiyalari

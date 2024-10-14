@@ -1,11 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:web_funnel/core/ui/app_colors.dart';
+import 'package:web_funnel/core/constants/app_colors.dart';
 import 'package:web_funnel/ui/builder_page/page_modifier_column/page_modifier_column.dart';
-import 'package:web_funnel/ui/builder_page/settings_column/page_settings_column.dart';
-import 'package:web_funnel/ui/builder_page/widget/pages_column.dart';
 import 'package:web_funnel/ui/builder_page/phone_column/phone_column.dart';
+import 'package:web_funnel/ui/builder_page/settings_column/page_settings_column.dart';
 import 'package:web_funnel/ui/builder_page/widget/funnel_bar.dart';
+import 'package:web_funnel/ui/builder_page/widget/pages_column.dart';
 
 @RoutePage()
 class BuilderPage extends StatefulWidget {
@@ -25,7 +25,7 @@ class _BuilderPageState extends State<BuilderPage> {
         children: [
           const PagesSelectionColumn(),
           const PageModifierColumn(),
-          Expanded(child: PhoneColumn()),
+          PhoneColumn(),
           const ElementSettingsColumn()
         ],
       ),

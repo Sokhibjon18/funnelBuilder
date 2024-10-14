@@ -8,11 +8,13 @@ class SwitchableComponent extends StatefulWidget {
     required this.onSwitched,
     required this.text,
     this.padding,
+    this.textStyle,
   });
 
-  final ValueChanged<bool> onSwitched;
   final String text;
+  final TextStyle? textStyle;
   final EdgeInsetsGeometry? padding;
+  final ValueChanged<bool> onSwitched;
 
   @override
   State<SwitchableComponent> createState() => _SwitchableComponentState();
@@ -27,6 +29,7 @@ class _SwitchableComponentState extends State<SwitchableComponent> {
       padding: widget.padding ?? EdgeInsets.fromLTRB(10, 8, 0, 8),
       backgroundColor: AppColors.transparent,
       text: widget.text,
+      textStyle: widget.textStyle,
       child: Switch(
         activeColor: AppColors.white,
         splashRadius: 10,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:web_funnel/core/ui/app_colors.dart';
+import 'package:web_funnel/core/constants/app_colors.dart';
 import 'package:web_funnel/core/ui/widgets/custom_button.dart';
 
 class FunnelBar extends StatelessWidget implements PreferredSizeWidget {

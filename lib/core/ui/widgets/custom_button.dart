@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:web_funnel/core/ui/app_colors.dart';
+import 'package:web_funnel/core/constants/app_colors.dart';
 
 class CustomButton extends StatefulWidget {
   final String text;
@@ -30,7 +30,7 @@ class _CustomButtonState extends State<CustomButton> {
         padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
         child: Text(
           widget.text,
-          style: const TextStyle(fontSize: 16, color: AppColors.white),
+          style: TextStyle(fontSize: 16, color: AppColors.textPrimary),
         ),
       ),
     );

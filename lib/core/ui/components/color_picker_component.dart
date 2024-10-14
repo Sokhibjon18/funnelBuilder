@@ -20,7 +20,7 @@ class ColorPickerComponent extends StatefulWidget {
 class _ColorPickerComponentState extends State<ColorPickerComponent> {
   Color myColor = Colors.white;
   final TextStyle textStyle = const TextStyle(
-    fontSize: 12,
+    fontSize: 16,
     fontWeight: FontWeight.w400,
     color: AppColors.textPrimary,
     overflow: TextOverflow.ellipsis,
@@ -41,8 +41,8 @@ class _ColorPickerComponentState extends State<ColorPickerComponent> {
           );
         },
         child: Container(
-          width: 40,
-          height: 40,
+          width: 52,
+          height: 52,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8),
             color: myColor,
@@ -56,7 +56,7 @@ class _ColorPickerComponentState extends State<ColorPickerComponent> {
     return Dialog(
       child: Container(
         width: 400,
-        height: 600,
+        height: 580,
         padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
@@ -77,11 +77,11 @@ class _ColorPickerComponentState extends State<ColorPickerComponent> {
           opacityTrackHeight: 24,
           opacityThumbRadius: 12,
           pickersEnabled: const <ColorPickerType, bool>{
-            ColorPickerType.both: false,
-            ColorPickerType.accent: true,
-            ColorPickerType.bw: false,
-            ColorPickerType.custom: true,
             ColorPickerType.primary: true,
+            ColorPickerType.accent: true,
+            ColorPickerType.custom: true,
+            ColorPickerType.both: false,
+            ColorPickerType.bw: false,
             ColorPickerType.wheel: false,
           },
           customColorSwatchesAndNames: {

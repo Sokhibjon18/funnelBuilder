@@ -12,6 +12,7 @@ class NumberInputComponent extends StatelessWidget {
     this.inputFormatters,
     this.padding,
     this.backgroundColor,
+    this.maxLength,
   });
 
   final String text;
@@ -19,20 +20,22 @@ class NumberInputComponent extends StatelessWidget {
   final List<TextInputFormatter>? inputFormatters;
   final EdgeInsetsGeometry? padding;
   final Color? backgroundColor;
+  final int? maxLength;
 
   @override
   Widget build(BuildContext context) {
     return ComponentWrapper(
       backgroundColor: AppColors.transparent,
-      padding: padding ?? const EdgeInsets.only(left: 10),
+      padding: padding ?? const EdgeInsets.only(left: 10, top: 2),
       text: text,
       textFlex: 2,
       child: Expanded(
         flex: 1,
         child: SizedBox(
-          height: 32,
+          height: 52,
           child: CommonTextfield(
             radius: 8,
+            maxLength: maxLength,
             backgroundColor: backgroundColor ?? AppColors.componentsBackground,
             onChanged: onChanged,
             inputFormatters: inputFormatters,
