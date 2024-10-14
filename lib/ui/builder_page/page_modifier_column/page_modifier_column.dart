@@ -1,6 +1,8 @@
 import 'package:animated_button_bar/animated_button_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:web_funnel/core/constants/app_colors.dart';
+import 'package:web_funnel/core/gen/strings.dart';
+import 'package:web_funnel/core/ui/app_colors.dart';
 import 'package:web_funnel/ui/builder_page/page_modifier_column/widgets/elements.dart';
 import 'package:web_funnel/ui/builder_page/page_modifier_column/widgets/page_settings.dart';
 
@@ -44,8 +46,8 @@ class _PageModifierColumnState extends State<PageModifierColumn> {
               ),
               ButtonBarEntry(
                 onTap: () => setState(() => selectedTab = 'Page Setting'),
-                child: const Text(
-                  'Page Setting',
+                child: Text(
+                  Strings.pageSetting,
                   style: TextStyle(
                     fontSize: 16,
                     color: AppColors.white,

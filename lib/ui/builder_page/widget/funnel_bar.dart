@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:web_funnel/core/constants/app_colors.dart';
+import 'package:web_funnel/core/gen/strings.dart';
+import 'package:web_funnel/core/ui/app_colors.dart';
 import 'package:web_funnel/core/ui/widgets/custom_button.dart';
 
 class FunnelBar extends StatelessWidget implements PreferredSizeWidget {
@@ -36,7 +38,7 @@ class FunnelBar extends StatelessWidget implements PreferredSizeWidget {
             Icon(Icons.edit, size: 18, color: AppColors.white),
             SizedBox(width: 12),
             Text(
-              'Project name',
+              Strings.projectName,
               style: TextStyle(fontSize: 16, color: AppColors.white),
             ),
           ],
@@ -51,13 +53,13 @@ class FunnelBar extends StatelessWidget implements PreferredSizeWidget {
       child: Row(
         children: [
           CustomButton(
-            text: 'Preview',
+            text: Strings.preview,
             color: AppColors.buttonColor,
             onPressed: () {},
           ),
           const SizedBox(width: 12),
           CustomButton(
-            text: 'Publish',
+            text: Strings.publish,
             color: AppColors.blue,
             onPressed: () {},
           )
