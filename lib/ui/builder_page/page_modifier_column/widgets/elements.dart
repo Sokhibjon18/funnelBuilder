@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:web_funnel/core/constants/app_colors.dart';
 import 'package:web_funnel/core/gen/strings.dart';
 
-import 'package:web_funnel/core/gen/strings.dart';
-import 'package:web_funnel/core/constants/app_colors.dart';
 class Elements extends StatelessWidget {
   Elements({super.key});
 
