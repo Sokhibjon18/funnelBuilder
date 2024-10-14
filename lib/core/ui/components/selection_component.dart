@@ -8,7 +8,8 @@ class SelectionComponent extends StatefulWidget {
     this.backgroundColor = AppColors.componentsBackground,
     required this.dropdownItems,
     required this.defaultSelectedValue,
-    required this.onValueChanged, required this.selectionText,
+    required this.onValueChanged,
+    required this.selectionText,
   });
 
   final Color backgroundColor;
@@ -31,7 +32,7 @@ class _SelectionComponentState extends State<SelectionComponent> {
   }
 
   final TextStyle textStyle = const TextStyle(
-    fontSize: 12,
+    fontSize: 16,
     fontWeight: FontWeight.w400,
     color: AppColors.textPrimary,
     overflow: TextOverflow.ellipsis,
@@ -47,7 +48,7 @@ class _SelectionComponentState extends State<SelectionComponent> {
         icon: Icon(
           Icons.keyboard_arrow_down_rounded,
           color: AppColors.textPrimary,
-          size: 16,
+          size: 20,
         ),
         dropdownColor: AppColors.componentsBackground,
         underline: const SizedBox.shrink(),

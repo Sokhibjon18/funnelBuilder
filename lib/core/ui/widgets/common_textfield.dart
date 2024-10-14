@@ -15,6 +15,7 @@ class CommonTextfield extends StatelessWidget {
     this.cursorHeight,
     this.contentPadding,
     this.hint,
+    this.maxLength,
   });
 
   final TextEditingController? controller;
@@ -27,26 +28,29 @@ class CommonTextfield extends StatelessWidget {
   final double? cursorHeight;
   final EdgeInsetsGeometry? contentPadding;
   final String? hint;
+  final int? maxLength;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
       inputFormatters: inputFormatters,
-      cursorHeight: cursorHeight ?? 12,
-      style: TextStyle(color: AppColors.textPrimary, fontSize: 12, fontWeight: FontWeight.w600),
+      cursorHeight: cursorHeight ?? 24,
+      maxLength: maxLength,
+      style: TextStyle(color: AppColors.textPrimary, fontSize: 16, fontWeight: FontWeight.w600),
       decoration: InputDecoration(
+        counterText: '',
         suffixIcon: suffixIcon,
         prefixIcon: prefixIcon,
         prefixStyle: TextStyle(
-          fontSize: 12,
+          fontSize: 16,
           fontWeight: FontWeight.w400,
           color: AppColors.textPrimary,
           overflow: TextOverflow.ellipsis,
         ),
         hintText: hint,
         hintStyle: TextStyle(
-          fontSize: 12,
+          fontSize: 16,
           fontWeight: FontWeight.w400,
           color: AppColors.textPrimary,
           overflow: TextOverflow.ellipsis,

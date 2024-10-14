@@ -16,15 +16,16 @@ class TextInputComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ComponentWrapper(
-      height: 82,
+      height: 107,
       backgroundColor: backgroundColor,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Text(
             text,
             style: TextStyle(
-              fontSize: 12,
+              fontSize: 16,
               fontWeight: FontWeight.w400,
               color: AppColors.textPrimary,
               overflow: TextOverflow.ellipsis,
@@ -32,7 +33,7 @@ class TextInputComponent extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           SizedBox(
-            height: 32,
+            height: 52,
             child: CommonTextfield(
               radius: 8,
               hint: 'Text here',

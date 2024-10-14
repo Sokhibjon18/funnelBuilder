@@ -1,7 +1,7 @@
 import 'package:animated_button_bar/animated_button_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:web_funnel/core/constants/app_colors.dart';
 import 'package:web_funnel/core/gen/strings.dart';
-import 'package:web_funnel/core/ui/app_colors.dart';
 import 'package:web_funnel/ui/builder_page/page_modifier_column/widgets/elements.dart';
 import 'package:web_funnel/ui/builder_page/page_modifier_column/widgets/page_settings.dart';
 
@@ -20,13 +20,13 @@ class _PageModifierColumnState extends State<PageModifierColumn> {
     return Container(
       width: 304,
       height: MediaQuery.of(context).size.height,
-      color: AppColors.pagesColors,
+      color: AppColors.pageColor,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           AnimatedButtonBar(
             radius: 12.0,
-            padding: const EdgeInsets.all(24.0),
+            padding: const EdgeInsets.fromLTRB(24, 24, 24, 32),
             backgroundColor: AppColors.buttonColor,
             foregroundColor: AppColors.blue,
             elevation: 1,
@@ -57,9 +57,9 @@ class _PageModifierColumnState extends State<PageModifierColumn> {
             ],
           ),
           if (selectedTab == 'Elements') ...[
-            Elements()
+            Expanded(child: Elements())
           ] else if (selectedTab == 'Page Setting') ...[
-            PageSettings()
+            Expanded(child: PageSettings())
           ]
         ],
       ),

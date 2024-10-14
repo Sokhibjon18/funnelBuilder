@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:web_funnel/core/ui/app_colors.dart';
+import 'package:web_funnel/core/constants/app_colors.dart';
 
 class PagesSelectionColumn extends StatefulWidget {
   const PagesSelectionColumn({super.key});
@@ -75,7 +75,7 @@ class _PagesSelectionColumnState extends State<PagesSelectionColumn> {
                             child: Text(
                               '${pages[index]}',
                               style: const TextStyle(
-                                color: AppColors.pagesColors,
+                                color: AppColors.pageColor,
                                 fontSize: 18,
                                 fontWeight: FontWeight.w600,
                               ),

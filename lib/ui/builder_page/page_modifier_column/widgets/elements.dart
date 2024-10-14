@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:web_funnel/core/constants/app_colors.dart';
 import 'package:web_funnel/core/gen/strings.dart';
-import 'package:web_funnel/core/ui/app_colors.dart';
 
 class Elements extends StatelessWidget {
   Elements({super.key});
@@ -18,27 +18,31 @@ class Elements extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(24.0),
+      padding: const EdgeInsets.symmetric(horizontal: 24),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             Strings.baseElements,
             style: TextStyle(
-              color: AppColors.white,
-              fontSize: 24,
+              color: AppColors.textPrimary,
+              fontSize: 32,
               fontWeight: FontWeight.w500,
             ),
           ),
-          const SizedBox(height: 12),
-          Wrap(
-            crossAxisAlignment: WrapCrossAlignment.center,
-            alignment: WrapAlignment.center,
-            spacing: 16.0,
-            runSpacing: 16.0,
-            children: List.generate(elements.length, (index) {
-              return _buildElementContainer(elements[index]);
-            }),
+          const SizedBox(height: 32),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Wrap(
+                crossAxisAlignment: WrapCrossAlignment.center,
+                alignment: WrapAlignment.center,
+                spacing: 16.0,
+                runSpacing: 16.0,
+                children: List.generate(elements.length, (index) {
+                  return _buildElementContainer(elements[index]);
+                }),
+              ),
+            ),
           ),
         ],
       ),
@@ -52,18 +56,18 @@ class Elements extends StatelessWidget {
         aspectRatio: 1,
         child: Container(
           decoration: BoxDecoration(
-            color: AppColors.pagesColors,
+            color: AppColors.pageColor,
             border: Border.all(color: AppColors.white, width: 3),
             borderRadius: BorderRadius.circular(12),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(element.icon, color: AppColors.white, size: 48),
+              Icon(element.icon, color: AppColors.primaryIcon, size: 48),
               const SizedBox(height: 8),
               Text(
                 element.name,
-                style: const TextStyle(color: AppColors.white, fontSize: 16),
+                style: const TextStyle(color: AppColors.textPrimary, fontSize: 16),
                 textAlign: TextAlign.center,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,

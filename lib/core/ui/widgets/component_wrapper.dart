@@ -4,13 +4,14 @@ import 'package:web_funnel/core/constants/app_colors.dart';
 class ComponentWrapper extends StatelessWidget {
   const ComponentWrapper({
     super.key,
-    this.height = 40,
+    this.height = 52,
     this.backgroundColor,
     this.margin = EdgeInsets.zero,
     this.padding = const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
     this.child,
     this.text,
     this.textFlex = 1,
+    this.textStyle,
   });
 
   final Widget? child;
@@ -20,6 +21,7 @@ class ComponentWrapper extends StatelessWidget {
   final EdgeInsetsGeometry padding;
   final String? text;
   final int textFlex;
+  final TextStyle? textStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -34,17 +36,20 @@ class ComponentWrapper extends StatelessWidget {
       ),
       child: text != null
           ? Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Expanded(
                   flex: textFlex,
                   child: Text(
                     text!,
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w400,
-                      color: AppColors.textPrimary,
-                      overflow: TextOverflow.ellipsis,
-                    ),
+                    style: textStyle ??
+                        TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
+                          color: AppColors.textPrimary,
+                          overflow: TextOverflow.ellipsis,
+                        ),
                   ),
                 ),
                 child ?? const SizedBox.shrink()
