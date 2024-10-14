@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:web_funnel/core/gen/strings.dart';
 import 'package:web_funnel/core/ui/app_colors.dart';
 
 class Elements extends StatelessWidget {
   Elements({super.key});
 
   final List<ElementData> elements = [
-    ElementData(Icons.text_format_outlined, 'Text'),
-    ElementData(Icons.image_outlined, 'Image'),
-    ElementData(Icons.check_box_outlined, 'Multiple \nChoice'),
-    ElementData(Icons.text_fields_outlined, 'Text Field'),
-    ElementData(Icons.smart_button, 'Button'),
+    ElementData(Icons.text_format_outlined, Strings.text),
+    ElementData(Icons.image_outlined, Strings.image),
+    ElementData(Icons.check_box_outlined, Strings.multipleChoice),
+    ElementData(Icons.text_fields_outlined, Strings.textField),
+    ElementData(Icons.smart_button, Strings.button),
     ElementData(Icons.space_bar_outlined, 'Spacer'),
-    ElementData(Icons.subscriptions_outlined, 'Subscription'),
+    ElementData(Icons.subscriptions_outlined, Strings.subscriptionOptions),
   ];
 
   @override
@@ -21,8 +22,8 @@ class Elements extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            'Base Elements',
+          Text(
+            Strings.baseElements,
             style: TextStyle(
               color: AppColors.white,
               fontSize: 24,
