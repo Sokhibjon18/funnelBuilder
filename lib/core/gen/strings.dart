@@ -9,7 +9,7 @@ part 'strings.g.dart';
 
 @SheetLocalization(
   docId: '1dOb4eFpZ46-JLuFaN5C5JWlRBsoVxIZRX8QjkacKSUg',
-  version: 8,
+  version: 9,
   outDir: 'assets/localization',
   outName: 'translations.csv',
   preservedKeywords: [

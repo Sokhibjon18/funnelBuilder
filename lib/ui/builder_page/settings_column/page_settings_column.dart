@@ -8,6 +8,7 @@ import 'package:web_funnel/core/ui/components/number_input_component.dart';
 import 'package:web_funnel/core/ui/components/selection_component.dart';
 import 'package:web_funnel/core/ui/components/switchable_component.dart';
 import 'package:web_funnel/core/ui/components/text_input_component.dart';
+import 'package:web_funnel/data/models/page_setting_models/page_setting_styles_model.dart';
 
 class ElementSettingsColumn extends StatefulWidget {
   const ElementSettingsColumn({super.key});
@@ -17,9 +18,7 @@ class ElementSettingsColumn extends StatefulWidget {
 }
 
 class _ElementSettingsColumnState extends State<ElementSettingsColumn> {
-  final List<String> buttonTypes = ["Floating", "Pinned"];
-
-  String defaultType = "Floating";
+  String defaultType = PageSettingStylesModel.buttonTypeItems[0];
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +76,7 @@ class _ElementSettingsColumnState extends State<ElementSettingsColumn> {
                   const SizedBox(height: 12),
                   SelectionComponent(
                     selectionText: Strings.type,
-                    dropdownItems: buttonTypes,
+                    dropdownItems: PageSettingStylesModel.buttonTypeItems,
                     defaultSelectedValue: defaultType,
                     onValueChanged: (value) {},
                   ),

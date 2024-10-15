@@ -8,14 +8,20 @@ import 'package:web_funnel/core/ui/components/number_input_component.dart';
 import 'package:web_funnel/core/ui/components/selection_component.dart';
 import 'package:web_funnel/core/ui/components/switchable_component.dart';
 import 'package:web_funnel/core/ui/widgets/component_wrapper.dart';
+import 'package:web_funnel/data/models/page_setting_models/page_setting_styles_model.dart';
 
-class PageSettings extends StatelessWidget {
-  PageSettings({super.key});
-  final List<String> dropdownItems = [Strings.light, Strings.dark];
+class PageSettings extends StatefulWidget {
+  const PageSettings({super.key});
 
   @override
+  State<PageSettings> createState() => _PageSettingsState();
+}
+
+class _PageSettingsState extends State<PageSettings> {
+  PageSettingStylesModel pageSettingStylesModel = PageSettingStylesModel.initial();
+  @override
   Widget build(BuildContext context) {
-    String selectedValue = Strings.dark;
+    String selectedValue = PageSettingStylesModel.themeStatusItems[1];
     return Container(
       color: AppColors.sidebarBackground,
       padding: EdgeInsets.symmetric(horizontal: 24),
@@ -38,7 +44,7 @@ class PageSettings extends StatelessWidget {
                   SelectionComponent(
                     selectionText: Strings.statusBar,
                     defaultSelectedValue: selectedValue,
-                    dropdownItems: dropdownItems,
+                    dropdownItems: PageSettingStylesModel.themeStatusItems,
                     onValueChanged: (String value) {},
                   ),
                   const SizedBox(height: 12),
@@ -67,7 +73,7 @@ class PageSettings extends StatelessWidget {
                         ),
                         const SizedBox(height: 8),
                         NumberInputComponent(
-                          maxLength: 4,
+                          maxLength: 2,
                           backgroundColor: AppColors.sidebarBackground,
                           padding: EdgeInsets.zero,
                           text: Strings.durationSec,
