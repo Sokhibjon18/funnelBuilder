@@ -30,3 +30,5 @@ image,Image,Изображение,Rasm
 multipleChoice,Multiple Choice,Множественный выбор,Ko'p tanlov
 textField,Text Field,Текстовое поле,Matn maydoni
 subscriptionOptions,Subscription Options,Параметры подписки,Obuna opsiyalari
+floating,Floating,Floating,Floating
+pinned,Pinned,Pinned,Pinned

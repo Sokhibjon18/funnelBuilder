@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:web_funnel/core/constants/app_colors.dart';
@@ -8,14 +10,28 @@ import 'package:web_funnel/core/ui/components/number_input_component.dart';
 import 'package:web_funnel/core/ui/components/selection_component.dart';
 import 'package:web_funnel/core/ui/components/switchable_component.dart';
 import 'package:web_funnel/core/ui/widgets/component_wrapper.dart';
+import 'package:web_funnel/data/models/page_setting_models/page_setting_styles_model.dart';
 
-class PageSettings extends StatelessWidget {
-  PageSettings({super.key});
-  final List<String> dropdownItems = [Strings.light, Strings.dark];
+class PageSettings extends StatefulWidget {
+  const PageSettings({super.key});
+
+  @override
+  State<PageSettings> createState() => _PageSettingsState();
+}
+
+class _PageSettingsState extends State<PageSettings> {
+  PageSettingStylesModel pageSettingStylesModel = PageSettingStylesModel.initial();
+  late String selectedValue;
+
+  @override
+  void initState() {
+    selectedValue = PageSettingStylesModel.themeStatusItems[1];
+    pageSettingStylesModel = pageSettingStylesModel.copyWith(statusBar: selectedValue);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
-    String selectedValue = Strings.dark;
     return Container(
       color: AppColors.sidebarBackground,
       padding: EdgeInsets.symmetric(horizontal: 24),
@@ -38,19 +54,29 @@ class PageSettings extends StatelessWidget {
                   SelectionComponent(
                     selectionText: Strings.statusBar,
                     defaultSelectedValue: selectedValue,
-                    dropdownItems: dropdownItems,
-                    onValueChanged: (String value) {},
+                    dropdownItems: PageSettingStylesModel.themeStatusItems,
+                    onValueChanged: (String value) {
+                      selectedValue = value;
+                      pageSettingStylesModel =
+                          pageSettingStylesModel.copyWith(statusBar: selectedValue);
+                    },
                   ),
                   const SizedBox(height: 12),
                   ImagePickerComponent(),
                   const SizedBox(height: 12),
                   SwitchableComponent(
-                    onSwitched: (value) {},
+                    onSwitched: (value) {
+                      pageSettingStylesModel = pageSettingStylesModel.copyWith(blurImage: value);
+                    },
                     text: Strings.blurImage,
                   ),
                   const SizedBox(height: 12),
                   ColorPickerComponent(
                     text: Strings.backgroundColor,
+                    onColorChanged: (color) {
+                      pageSettingStylesModel =
+                          pageSettingStylesModel.copyWith(backgroundColor: color);
+                    },
                   ),
                   const SizedBox(height: 12),
                   ComponentWrapper(
@@ -63,16 +89,24 @@ class PageSettings extends StatelessWidget {
                         SwitchableComponent(
                           text: Strings.autoNavigation,
                           padding: EdgeInsets.zero,
-                          onSwitched: (value) {},
+                          onSwitched: (value) {
+                            pageSettingStylesModel =
+                                pageSettingStylesModel.copyWith(autoNavigation: value);
+                          },
                         ),
                         const SizedBox(height: 8),
                         NumberInputComponent(
-                          maxLength: 4,
+                          maxLength: 2,
                           backgroundColor: AppColors.sidebarBackground,
                           padding: EdgeInsets.zero,
                           text: Strings.durationSec,
                           inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                          onChanged: (value) {},
+                          onChanged: (value) {
+                            pageSettingStylesModel =
+                                pageSettingStylesModel.copyWith(durationInSec: int.tryParse(value));
+
+                            log(pageSettingStylesModel.toString());
+                          },
                         )
                       ],
                     ),

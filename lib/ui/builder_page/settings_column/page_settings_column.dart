@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:web_funnel/core/constants/app_colors.dart';
@@ -8,6 +10,9 @@ import 'package:web_funnel/core/ui/components/number_input_component.dart';
 import 'package:web_funnel/core/ui/components/selection_component.dart';
 import 'package:web_funnel/core/ui/components/switchable_component.dart';
 import 'package:web_funnel/core/ui/components/text_input_component.dart';
+import 'package:web_funnel/data/models/page_setting_models/page_setting_alignments_model.dart';
+import 'package:web_funnel/data/models/page_setting_models/page_setting_button_model.dart';
+import 'package:web_funnel/data/models/page_setting_models/page_setting_styles_model.dart';
 
 class ElementSettingsColumn extends StatefulWidget {
   const ElementSettingsColumn({super.key});
@@ -17,9 +22,16 @@ class ElementSettingsColumn extends StatefulWidget {
 }
 
 class _ElementSettingsColumnState extends State<ElementSettingsColumn> {
-  final List<String> buttonTypes = ["Floating", "Pinned"];
+  late String defaultType;
+  PageSettingAlignmentModel pageSettingAlignmentModel = PageSettingAlignmentModel.initial();
+  PageSettingButtonModel pageSettingButtonModel = PageSettingButtonModel.initial();
 
-  String defaultType = "Floating";
+  @override
+  void initState() {
+    defaultType = PageSettingStylesModel.buttonTypeItems[0];
+    pageSettingButtonModel = pageSettingButtonModel.copyWith(type: defaultType);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,20 +56,29 @@ class _ElementSettingsColumnState extends State<ElementSettingsColumn> {
               child: Column(
                 children: [
                   CheckableComponent(
-                    onValueChanged: (value) {},
+                    onValueChanged: (value) {
+                      pageSettingAlignmentModel =
+                          pageSettingAlignmentModel.copyWith(isScrollable: value);
+                    },
                   ),
                   const SizedBox(height: 12),
                   NumberInputComponent(
                     maxLength: 3,
                     text: Strings.paddingVertical,
-                    onChanged: (value) {},
+                    onChanged: (value) {
+                      pageSettingAlignmentModel =
+                          pageSettingAlignmentModel.copyWith(paddingVertical: int.tryParse(value));
+                    },
                     inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                   ),
                   const SizedBox(height: 12),
                   NumberInputComponent(
                     maxLength: 3,
                     text: Strings.paddingHorizontal,
-                    onChanged: (value) {},
+                    onChanged: (value) {
+                      pageSettingAlignmentModel = pageSettingAlignmentModel.copyWith(
+                          paddingHorizontal: int.tryParse(value));
+                    },
                     inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                   ),
                   const SizedBox(height: 12),
@@ -68,21 +89,42 @@ class _ElementSettingsColumnState extends State<ElementSettingsColumn> {
                       color: AppColors.textPrimary,
                     ),
                     text: Strings.button,
-                    onSwitched: (value) {},
+                    onSwitched: (value) {
+                      pageSettingButtonModel = pageSettingButtonModel.copyWith(hasButton: value);
+                    },
                   ),
                   const SizedBox(height: 12),
-                  ColorPickerComponent(text: Strings.color),
+                  ColorPickerComponent(
+                    text: Strings.color,
+                    onColorChanged: (color) {
+                      pageSettingButtonModel = pageSettingButtonModel.copyWith(buttonColor: color);
+                    },
+                  ),
                   const SizedBox(height: 12),
-                  ColorPickerComponent(text: Strings.textColor),
+                  ColorPickerComponent(
+                    text: Strings.textColor,
+                    onColorChanged: (color) {
+                      pageSettingButtonModel = pageSettingButtonModel.copyWith(textColor: color);
+                    },
+                  ),
                   const SizedBox(height: 12),
                   SelectionComponent(
                     selectionText: Strings.type,
-                    dropdownItems: buttonTypes,
+                    dropdownItems: PageSettingStylesModel.buttonTypeItems,
                     defaultSelectedValue: defaultType,
-                    onValueChanged: (value) {},
+                    onValueChanged: (value) {
+                      pageSettingButtonModel = pageSettingButtonModel.copyWith(type: value);
+                    },
                   ),
                   const SizedBox(height: 12),
-                  TextInputComponent(text: Strings.text),
+                  TextInputComponent(
+                    text: Strings.text,
+                    onChanged: (text) {
+                      pageSettingButtonModel = pageSettingButtonModel.copyWith(text: text);
+                      log(pageSettingButtonModel.toString());
+                      log(pageSettingAlignmentModel.toString());
+                    },
+                  ),
                 ],
               ),
             ),
