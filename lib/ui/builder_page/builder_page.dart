@@ -6,6 +6,7 @@ import 'package:web_funnel/ui/builder_page/phone_column/phone_column.dart';
 import 'package:web_funnel/ui/builder_page/settings_column/page_settings_column.dart';
 import 'package:web_funnel/ui/builder_page/widget/funnel_bar.dart';
 import 'package:web_funnel/ui/builder_page/widget/pages_column.dart';
+import 'package:web_funnel/ui/models/paddings/paddings.dart';
 
 @RoutePage()
 class BuilderPage extends StatefulWidget {
@@ -26,7 +27,8 @@ class _BuilderPageState extends State<BuilderPage> {
           const PagesSelectionColumn(),
           const PageModifierColumn(),
           PhoneColumn(),
-          const ElementSettingsColumn()
+          // const ElementSettingsColumn()
+          const Paddings()
         ],
       ),
     );
