@@ -26,6 +26,24 @@ class PageSettingStylesModel {
         autoNavigation = false,
         durationInSec = 0;
 
+  PageSettingStylesModel copyWith({
+    String? statusBar,
+    String? backgroundImage,
+    bool? blurImage,
+    Color? backgroundColor,
+    bool? autoNavigation,
+    int? durationInSec,
+  }) {
+    return PageSettingStylesModel(
+      statusBar: statusBar ?? this.statusBar,
+      backgroundImage: backgroundImage ?? this.backgroundImage,
+      blurImage: blurImage ?? this.blurImage,
+      backgroundColor: backgroundColor ?? this.backgroundColor,
+      autoNavigation: autoNavigation ?? this.autoNavigation,
+      durationInSec: durationInSec ?? this.durationInSec,
+    );
+  }
+
   @override
   String toString() {
     return 'PageSettingStylesModel(statusBar: $statusBar, backgroundImage: $backgroundImage, blurImage: $blurImage, backgroundColor: $backgroundColor, autoNavigation: $autoNavigation, durationInSec: $durationInSec)';

@@ -8,10 +8,12 @@ class ColorPickerComponent extends StatefulWidget {
     super.key,
     this.backgroundColor = AppColors.componentsBackground,
     required this.text,
+    required this.onColorChanged,
   });
 
   final Color backgroundColor;
   final String text;
+  final ValueChanged<Color> onColorChanged;
 
   @override
   State<ColorPickerComponent> createState() => _ColorPickerComponentState();
@@ -35,7 +37,6 @@ class _ColorPickerComponentState extends State<ColorPickerComponent> {
       child: GestureDetector(
         onTap: () {
           showDialog(
-            barrierDismissible: false,
             context: context,
             builder: (_) => _colorPicker(),
           );

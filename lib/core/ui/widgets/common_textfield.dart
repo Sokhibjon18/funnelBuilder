@@ -16,6 +16,8 @@ class CommonTextfield extends StatelessWidget {
     this.contentPadding,
     this.hint,
     this.maxLength,
+    this.maxLines,
+    this.minLines,
   });
 
   final TextEditingController? controller;
@@ -29,6 +31,8 @@ class CommonTextfield extends StatelessWidget {
   final EdgeInsetsGeometry? contentPadding;
   final String? hint;
   final int? maxLength;
+  final int? maxLines;
+  final int? minLines;
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +41,8 @@ class CommonTextfield extends StatelessWidget {
       inputFormatters: inputFormatters,
       cursorHeight: cursorHeight ?? 24,
       maxLength: maxLength,
+      maxLines: maxLines,
+      minLines: minLines,
       style: TextStyle(color: AppColors.textPrimary, fontSize: 16, fontWeight: FontWeight.w600),
       decoration: InputDecoration(
         counterText: '',

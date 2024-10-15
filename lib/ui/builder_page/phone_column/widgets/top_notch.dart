@@ -12,7 +12,7 @@ class TopNotch extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: phoneWidth * 0.2,
+      height: phoneWidth * 0.17,
       padding: const EdgeInsets.fromLTRB(32, 10, 32, 0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.vertical(top: Radius.circular(phoneRadius)),

@@ -1,23 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:web_funnel/core/constants/app_colors.dart';
 import 'package:web_funnel/core/ui/widgets/common_textfield.dart';
-import 'package:web_funnel/core/ui/widgets/component_wrapper.dart';
 
 class TextInputComponent extends StatelessWidget {
   const TextInputComponent({
     super.key,
     this.backgroundColor,
     required this.text,
+    this.onChanged,
   });
 
   final Color? backgroundColor;
   final String text;
+  final void Function(String)? onChanged;
 
   @override
   Widget build(BuildContext context) {
-    return ComponentWrapper(
-      height: 107,
-      backgroundColor: backgroundColor,
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(8),
+        color: backgroundColor ?? AppColors.componentsBackground,
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
@@ -32,14 +37,13 @@ class TextInputComponent extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 16),
-          SizedBox(
-            height: 52,
-            child: CommonTextfield(
-              radius: 8,
-              hint: 'Text here',
-              backgroundColor: AppColors.sidebarBackground,
-              onChanged: (value) {},
-            ),
+          CommonTextfield(
+            radius: 8,
+            minLines: 1,
+            maxLines: 3,
+            hint: 'Text here',
+            backgroundColor: AppColors.sidebarBackground,
+            onChanged: onChanged,
           ),
         ],
       ),

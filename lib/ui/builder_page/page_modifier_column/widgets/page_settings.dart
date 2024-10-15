@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:web_funnel/core/constants/app_colors.dart';
@@ -19,9 +21,17 @@ class PageSettings extends StatefulWidget {
 
 class _PageSettingsState extends State<PageSettings> {
   PageSettingStylesModel pageSettingStylesModel = PageSettingStylesModel.initial();
+  late String selectedValue;
+
+  @override
+  void initState() {
+    selectedValue = PageSettingStylesModel.themeStatusItems[1];
+    pageSettingStylesModel = pageSettingStylesModel.copyWith(statusBar: selectedValue);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    String selectedValue = PageSettingStylesModel.themeStatusItems[1];
     return Container(
       color: AppColors.sidebarBackground,
       padding: EdgeInsets.symmetric(horizontal: 24),
@@ -45,18 +55,28 @@ class _PageSettingsState extends State<PageSettings> {
                     selectionText: Strings.statusBar,
                     defaultSelectedValue: selectedValue,
                     dropdownItems: PageSettingStylesModel.themeStatusItems,
-                    onValueChanged: (String value) {},
+                    onValueChanged: (String value) {
+                      selectedValue = value;
+                      pageSettingStylesModel =
+                          pageSettingStylesModel.copyWith(statusBar: selectedValue);
+                    },
                   ),
                   const SizedBox(height: 12),
                   ImagePickerComponent(),
                   const SizedBox(height: 12),
                   SwitchableComponent(
-                    onSwitched: (value) {},
+                    onSwitched: (value) {
+                      pageSettingStylesModel = pageSettingStylesModel.copyWith(blurImage: value);
+                    },
                     text: Strings.blurImage,
                   ),
                   const SizedBox(height: 12),
                   ColorPickerComponent(
                     text: Strings.backgroundColor,
+                    onColorChanged: (color) {
+                      pageSettingStylesModel =
+                          pageSettingStylesModel.copyWith(backgroundColor: color);
+                    },
                   ),
                   const SizedBox(height: 12),
                   ComponentWrapper(
@@ -69,7 +89,10 @@ class _PageSettingsState extends State<PageSettings> {
                         SwitchableComponent(
                           text: Strings.autoNavigation,
                           padding: EdgeInsets.zero,
-                          onSwitched: (value) {},
+                          onSwitched: (value) {
+                            pageSettingStylesModel =
+                                pageSettingStylesModel.copyWith(autoNavigation: value);
+                          },
                         ),
                         const SizedBox(height: 8),
                         NumberInputComponent(
@@ -78,7 +101,12 @@ class _PageSettingsState extends State<PageSettings> {
                           padding: EdgeInsets.zero,
                           text: Strings.durationSec,
                           inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                          onChanged: (value) {},
+                          onChanged: (value) {
+                            pageSettingStylesModel =
+                                pageSettingStylesModel.copyWith(durationInSec: int.tryParse(value));
+
+                            log(pageSettingStylesModel.toString());
+                          },
                         )
                       ],
                     ),
