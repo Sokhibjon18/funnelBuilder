@@ -9,19 +9,27 @@ class SwitchableComponent extends StatefulWidget {
     required this.text,
     this.padding,
     this.textStyle,
+    required this.switchValue,
   });
 
   final String text;
   final TextStyle? textStyle;
   final EdgeInsetsGeometry? padding;
   final ValueChanged<bool> onSwitched;
+  final bool switchValue;
 
   @override
   State<SwitchableComponent> createState() => _SwitchableComponentState();
 }
 
 class _SwitchableComponentState extends State<SwitchableComponent> {
-  bool _isSwitchedOn = false;
+  late bool _isSwitchedOn;
+
+  @override
+  void initState() {
+    _isSwitchedOn = widget.switchValue;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

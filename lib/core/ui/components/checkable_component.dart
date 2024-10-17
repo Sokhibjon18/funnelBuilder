@@ -8,17 +8,24 @@ class CheckableComponent extends StatefulWidget {
     super.key,
     this.backgroundColor = AppColors.componentsBackground,
     required this.onValueChanged,
+    required this.isChecked,
   });
 
   final Color backgroundColor;
   final ValueChanged<bool> onValueChanged;
+  final bool isChecked;
 
   @override
   State<CheckableComponent> createState() => _CheckableComponentState();
 }
 
 class _CheckableComponentState extends State<CheckableComponent> {
-  bool _isChecked = false;
+  late bool _isChecked;
+  @override
+  void initState() {
+    _isChecked = widget.isChecked;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

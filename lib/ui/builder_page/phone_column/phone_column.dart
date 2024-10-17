@@ -70,12 +70,12 @@ class _PhoneColumnState extends State<PhoneColumn> {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(phoneBorderRadius),
             border: Border.all(color: AppColors.containerBorderPrimary, width: 4),
-            image: DecorationImage(
-              image: NetworkImage(
-                'https://i.pinimg.com/564x/b0/69/d7/b069d71d2a1d7879b583802a9847b12d.jpg',
-              ),
-              fit: BoxFit.cover,
-            ),
+            // image: DecorationImage(
+            //   image: NetworkImage(
+            //     'https://i.pinimg.com/564x/b0/69/d7/b069d71d2a1d7879b583802a9847b12d.jpg',
+            //   ),
+            //   fit: BoxFit.cover,
+            // ),
           ),
           child: Stack(
             children: [

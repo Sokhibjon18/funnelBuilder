@@ -21,14 +21,6 @@ class PageSettings extends StatefulWidget {
 
 class _PageSettingsState extends State<PageSettings> {
   PageSettingStylesModel pageSettingStylesModel = PageSettingStylesModel.initial();
-  late String selectedValue;
-
-  @override
-  void initState() {
-    selectedValue = PageSettingStylesModel.themeStatusItems[1];
-    pageSettingStylesModel = pageSettingStylesModel.copyWith(statusBar: selectedValue);
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,18 +45,18 @@ class _PageSettingsState extends State<PageSettings> {
                 children: [
                   SelectionComponent(
                     selectionText: Strings.statusBar,
-                    defaultSelectedValue: selectedValue,
+                    defaultSelectedValue: pageSettingStylesModel.statusBarValue,
                     dropdownItems: PageSettingStylesModel.themeStatusItems,
                     onValueChanged: (String value) {
-                      selectedValue = value;
                       pageSettingStylesModel =
-                          pageSettingStylesModel.copyWith(statusBar: selectedValue);
+                          pageSettingStylesModel.copyWith(statusBarValue: value);
                     },
                   ),
                   const SizedBox(height: 12),
                   ImagePickerComponent(),
                   const SizedBox(height: 12),
                   SwitchableComponent(
+                    switchValue: pageSettingStylesModel.blurImage,
                     onSwitched: (value) {
                       pageSettingStylesModel = pageSettingStylesModel.copyWith(blurImage: value);
                     },
@@ -87,6 +79,7 @@ class _PageSettingsState extends State<PageSettings> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         SwitchableComponent(
+                          switchValue: pageSettingStylesModel.autoNavigation,
                           text: Strings.autoNavigation,
                           padding: EdgeInsets.zero,
                           onSwitched: (value) {
@@ -96,18 +89,18 @@ class _PageSettingsState extends State<PageSettings> {
                         ),
                         const SizedBox(height: 8),
                         NumberInputComponent(
+                          inputtedText: pageSettingStylesModel.durationInSec.toString(),
                           maxLength: 2,
                           backgroundColor: AppColors.sidebarBackground,
                           padding: EdgeInsets.zero,
-                          text: Strings.durationSec,
+                          headerText: Strings.durationSec,
                           inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                           onChanged: (value) {
                             pageSettingStylesModel =
                                 pageSettingStylesModel.copyWith(durationInSec: int.tryParse(value));
-
                             log(pageSettingStylesModel.toString());
                           },
-                        )
+                        ),
                       ],
                     ),
                   ),
