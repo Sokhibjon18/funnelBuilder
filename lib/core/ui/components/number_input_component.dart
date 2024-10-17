@@ -13,9 +13,11 @@ class NumberInputComponent extends StatelessWidget {
     this.padding,
     this.backgroundColor,
     this.maxLength,
+    this.controller,
   });
 
   final String text;
+  final TextEditingController? controller;
   final void Function(String)? onChanged;
   final List<TextInputFormatter>? inputFormatters;
   final EdgeInsetsGeometry? padding;
@@ -34,6 +36,7 @@ class NumberInputComponent extends StatelessWidget {
         child: SizedBox(
           height: 52,
           child: CommonTextfield(
+            controller: controller,
             radius: 8,
             maxLength: maxLength,
             backgroundColor: backgroundColor ?? AppColors.componentsBackground,

@@ -5,11 +5,13 @@ class CustomDropDawn extends StatefulWidget {
   String selectedItem;
   final double width;
   final List<String> items;
+  final ValueChanged<String>? onChanged;
   CustomDropDawn(
       {super.key,
       required this.selectedItem,
       required this.items,
-      required this.width});
+      required this.width,
+      this.onChanged});
 
   @override
   State<CustomDropDawn> createState() => _CustomDropDawnState();
@@ -37,9 +39,9 @@ class _CustomDropDawnState extends State<CustomDropDawn> {
             );
           }).toList(),
           onChanged: (String? newValue) {
-            setState(() {
-              widget.selectedItem = newValue!;
-            });
+            if (newValue != null) {
+              widget.onChanged!(newValue);
+            }
           },
         ),
       ),
