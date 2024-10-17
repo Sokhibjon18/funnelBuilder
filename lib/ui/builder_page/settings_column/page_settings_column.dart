@@ -56,6 +56,7 @@ class _ElementSettingsColumnState extends State<ElementSettingsColumn> {
               child: Column(
                 children: [
                   CheckableComponent(
+                    isChecked: pageSettingAlignmentModel.isScrollable,
                     onValueChanged: (value) {
                       pageSettingAlignmentModel =
                           pageSettingAlignmentModel.copyWith(isScrollable: value);
@@ -64,7 +65,8 @@ class _ElementSettingsColumnState extends State<ElementSettingsColumn> {
                   const SizedBox(height: 12),
                   NumberInputComponent(
                     maxLength: 3,
-                    text: Strings.paddingVertical,
+                    inputtedText: pageSettingAlignmentModel.paddingVertical.toString(),
+                    headerText: Strings.paddingVertical,
                     onChanged: (value) {
                       pageSettingAlignmentModel =
                           pageSettingAlignmentModel.copyWith(paddingVertical: int.tryParse(value));
@@ -74,7 +76,8 @@ class _ElementSettingsColumnState extends State<ElementSettingsColumn> {
                   const SizedBox(height: 12),
                   NumberInputComponent(
                     maxLength: 3,
-                    text: Strings.paddingHorizontal,
+                    inputtedText: pageSettingAlignmentModel.paddingHorizontal.toString(),
+                    headerText: Strings.paddingHorizontal,
                     onChanged: (value) {
                       pageSettingAlignmentModel = pageSettingAlignmentModel.copyWith(
                           paddingHorizontal: int.tryParse(value));
@@ -83,6 +86,7 @@ class _ElementSettingsColumnState extends State<ElementSettingsColumn> {
                   ),
                   const SizedBox(height: 12),
                   SwitchableComponent(
+                    switchValue: pageSettingButtonModel.hasButton,
                     textStyle: TextStyle(
                       fontSize: 32,
                       fontWeight: FontWeight.w500,
@@ -111,16 +115,17 @@ class _ElementSettingsColumnState extends State<ElementSettingsColumn> {
                   SelectionComponent(
                     selectionText: Strings.type,
                     dropdownItems: PageSettingStylesModel.buttonTypeItems,
-                    defaultSelectedValue: defaultType,
+                    defaultSelectedValue: pageSettingButtonModel.type,
                     onValueChanged: (value) {
                       pageSettingButtonModel = pageSettingButtonModel.copyWith(type: value);
                     },
                   ),
                   const SizedBox(height: 12),
                   TextInputComponent(
+                    inputtedText: pageSettingButtonModel.buttonText,
                     text: Strings.text,
                     onChanged: (text) {
-                      pageSettingButtonModel = pageSettingButtonModel.copyWith(text: text);
+                      pageSettingButtonModel = pageSettingButtonModel.copyWith(buttonText: text);
                       log(pageSettingButtonModel.toString());
                       log(pageSettingAlignmentModel.toString());
                     },

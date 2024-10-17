@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:web_funnel/core/gen/strings.dart';
 
 class PageSettingStylesModel {
-  final String statusBar;
+  final String statusBarValue;
   final String backgroundImage;
   final bool blurImage;
   final Color backgroundColor;
@@ -10,7 +10,7 @@ class PageSettingStylesModel {
   final int durationInSec;
 
   PageSettingStylesModel({
-    required this.statusBar,
+    required this.statusBarValue,
     required this.backgroundImage,
     required this.blurImage,
     required this.backgroundColor,
@@ -19,7 +19,7 @@ class PageSettingStylesModel {
   });
 
   PageSettingStylesModel.initial()
-      : statusBar = '',
+      : statusBarValue = themeStatusItems[1],
         backgroundImage = '',
         blurImage = false,
         backgroundColor = const Color(0xFFFFFFFF),
@@ -27,7 +27,7 @@ class PageSettingStylesModel {
         durationInSec = 0;
 
   PageSettingStylesModel copyWith({
-    String? statusBar,
+    String? statusBarValue,
     String? backgroundImage,
     bool? blurImage,
     Color? backgroundColor,
@@ -35,7 +35,7 @@ class PageSettingStylesModel {
     int? durationInSec,
   }) {
     return PageSettingStylesModel(
-      statusBar: statusBar ?? this.statusBar,
+      statusBarValue: statusBarValue ?? this.statusBarValue,
       backgroundImage: backgroundImage ?? this.backgroundImage,
       blurImage: blurImage ?? this.blurImage,
       backgroundColor: backgroundColor ?? this.backgroundColor,
@@ -46,7 +46,7 @@ class PageSettingStylesModel {
 
   @override
   String toString() {
-    return 'PageSettingStylesModel(statusBar: $statusBar, backgroundImage: $backgroundImage, blurImage: $blurImage, backgroundColor: $backgroundColor, autoNavigation: $autoNavigation, durationInSec: $durationInSec)';
+    return 'PageSettingStylesModel(statusBar: $statusBarValue, backgroundImage: $backgroundImage, blurImage: $blurImage, backgroundColor: $backgroundColor, autoNavigation: $autoNavigation, durationInSec: $durationInSec)';
   }
 
   static List<String> themeStatusItems = [Strings.light, Strings.dark];

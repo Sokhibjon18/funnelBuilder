@@ -32,3 +32,10 @@ textField,Text Field,Текстовое поле,Matn maydoni
 subscriptionOptions,Subscription Options,Параметры подписки,Obuna opsiyalari
 floating,Floating,Floating,Floating
 pinned,Pinned,Pinned,Pinned
+paddings,Paddings,Прокладки,Ichki bo'shliq
+top,Top,Вершина,Yuqori
+bottom,Bottom,Нижний,Pastki
+left,Left,Левый,Chap
+right,Right,Правый,O'ng
+cornerRadius,Corner radius,Corner radius,Corner radius
+Style,Style,Style,
